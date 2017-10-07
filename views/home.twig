@@ -1,57 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<!-- lang="en" ????????????????????????????????? -->
-<head>
-    <meta charset="UTF-8">
-    <title>CMM 19</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css">
-    <link rel="stylesheet" href="/assets/home.css">
- </head>
- <body>
- 	<header>
- 	  <div class="has-text-centered">
- 		<img src="\assets\images\logo.png" alt="" width="145"
- 		height="auto">
- 	  </div>
-      <nav class="navbar-tabs">
-        <a href="#" class="navbar-item">HOME</a>
-        <a href="#" class="navbar-item">MY FABURIT</a>
-        <a href="#" class="navbar-item">CONTACT US</a>
-        <a href="#" class="navbar-item">GAME</a>
-        <a href="#" class="navbar-item">HISTORY</a>
-        <a href="#" class="navbar-item">LOGIN</a>
-        <a href="#" class="navbar-item">PROFILE</a>
-        <a href="#" class="navbar-item">LOGOUT</a>    
-      </nav>
- 	</header>
+{% extends 'layout/base.twig' %}
 
+{% block stylesheet %}
+  <link rel="stylesheet" href="/assets/home.css">
+{% endblock %}
+
+{% block content %}
+ 	
  	<main>
  		<section class="banner">
  			<div class="highlight">
  			  <div class="columns">
- 			  	<div class="column highlight-item">
- 			  	 <h1>สวนผักของลุงออสติน</h1>
+ 			  	<div class="column highlight-item" style="background-image: url({{ highlight.url }});">
+ 			  	 <h1>{{ highlight.title }}</h1>
  			  	</div>
  			  </div>
  			</div> 	
 
  			<div class="thumbnail">
  			   <div class="columns is-marginless">
- 			  	<div class="column thumbnail-item is-paddingless"
- 			  	style="background-image: url(/assets/images/home/banner/thumbnail-1.jpg);"> jirapaht
- 			    </div>
+ 			   	{% for item in thumbnail %}
+ 			  	  <div class="column thumbnail-item is-paddingless"
+ 			  	style="background-image: url({{ item.url }});">
+ 			  	     {{ item.title }}
+ 			      </div>
+ 			    {% endfor %}
 
- 			  	<div class="column thumbnail-item is-paddingless"
- 			  	style="background-image: url(/assets/images/home/banner/thumbnail-2.jpg);">jirapaht
- 			  	</div>
-
- 			  	<div class="column thumbnail-item is-paddingless"
- 			  	style="background-image: url(/assets/images/home/banner/thumbnail-3.jpg);">jirapaht
- 			  	</div>
-
- 			  	<div class="column thumbnail-item is-paddingless"
- 			  	style="background-image: url(/assets/images/home/banner/thumbnail-4.jpg);">jirapaht
- 			  	</div>
  			  </div>
  			</div>
  		</section>
@@ -201,6 +174,4 @@
 	</div>
 		</section>
     <main>
-
- </body>
- </html>
+{% endblock %}
